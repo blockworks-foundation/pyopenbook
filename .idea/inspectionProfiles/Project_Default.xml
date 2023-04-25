@@ -1,0 +1,52 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="7">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="style" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="JSHint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="20">
+            <item index="0" class="java.lang.String" itemvalue="Werkzeug" />
+            <item index="1" class="java.lang.String" itemvalue="zipp" />
+            <item index="2" class="java.lang.String" itemvalue="charset-normalizer" />
+            <item index="3" class="java.lang.String" itemvalue="uWSGI" />
+            <item index="4" class="java.lang.String" itemvalue="yarl" />
+            <item index="5" class="java.lang.String" itemvalue="gunicorn" />
+            <item index="6" class="java.lang.String" itemvalue="importlib-metadata" />
+            <item index="7" class="java.lang.String" itemvalue="attrs" />
+            <item index="8" class="java.lang.String" itemvalue="Flask" />
+            <item index="9" class="java.lang.String" itemvalue="frozenlist" />
+            <item index="10" class="java.lang.String" itemvalue="async-timeout" />
+            <item index="11" class="java.lang.String" itemvalue="aiohttp" />
+            <item index="12" class="java.lang.String" itemvalue="multidict" />
+            <item index="13" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="14" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="15" class="java.lang.String" itemvalue="aiosignal" />
+            <item index="16" class="java.lang.String" itemvalue="click" />
+            <item index="17" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="18" class="java.lang.String" itemvalue="websockets" />
+            <item index="19" class="java.lang.String" itemvalue="idna" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="Stylelint" enabled="true" level="ERROR" enabled_by_default="true" />
+  </profile>
+</component>

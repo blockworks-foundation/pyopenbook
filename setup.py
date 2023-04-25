@@ -3,8 +3,13 @@
 from setuptools import find_packages, setup
 
 setup(
+<<<<<<< Updated upstream
     name="pyserum",
     version="0.6.0a",
+=======
+    name="pyopenbook",
+    version="0.7.0a",
+>>>>>>> Stashed changes
     author="serum-community",
     description="""Python client library for interacting with the Project Serum DEX.""",
     install_requires=[
@@ -16,7 +21,7 @@ setup(
     license="MIT",
     package_data={"pyserum": ["py.typed"]},
     packages=find_packages(exclude=("tests", "tests.*")),
-    url="https://github.com/serum-community/pyserum",
+    url="https://github.com/blockworks-foundation/pyopenbook",
     zip_safe=False,  # required per mypy
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
