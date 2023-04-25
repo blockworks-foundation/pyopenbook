@@ -92,30 +92,37 @@ class MarketCore:
 
     def parse_fill_event(self, event: t.Event) -> t.FilledOrder:
         if event.event_flags.bid:
-            side = Side.BUY
+            side = 'bids'
+
             price_before_fees = (
-                event.native_quantity_released + event.native_fee_or_rebate
+                event.native_quantity_paid + event.native_fee_or_rebate
                 if event.event_flags.maker
-                else event.native_quantity_released - event.native_fee_or_rebate
+                else event.native_quantity_paid - event.native_fee_or_rebate
             )
+
+            price = (price_before_fees * self.state.base_spl_token_multiplier()) / (self.state.quote_spl_token_multiplier() * event.native_quantity_released)
+
+            size = event.native_quantity_released / self.state.base_spl_token_multiplier()
         else:
-            side = Side.SELL
+            side = 'asks'
+
             price_before_fees = (
                 event.native_quantity_released - event.native_fee_or_rebate
                 if event.event_flags.maker
                 else event.native_quantity_released + event.native_fee_or_rebate
             )
 
-        price = (price_before_fees * self.state.base_spl_token_multiplier()) / (
-            self.state.quote_spl_token_multiplier() * event.native_quantity_paid
-        )
-        size = event.native_quantity_paid / self.state.base_spl_token_multiplier()
+            price = (price_before_fees * self.state.base_spl_token_multiplier()) / (self.state.quote_spl_token_multiplier() * event.native_quantity_paid)
+
+            size = event.native_quantity_paid / self.state.base_spl_token_multiplier()
         return t.FilledOrder(
-            order_id=event.order_id,
             side=side,
+            type='maker' if event.event_flags.maker else 'taker',
             price=price,
             size=size,
-            fee_cost=event.native_fee_or_rebate * (1 if event.event_flags.maker else -1),
+            fee=self.state.quote_spl_size_to_number(event.native_fee_or_rebate) * (-1 if event.event_flags.maker else 1),
+            open_orders=event.public_key,
+            client_order_id=event.order_id,
         )
 
     def _prepare_new_oo_account(

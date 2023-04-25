@@ -14,11 +14,15 @@ async def main():
     connection = AsyncClient('https://mango.rpcpool.com/0f9acc0d45173b51bf7d7e09c1e5')
 
     serum_markets = await asyncio.gather(*[
-        AsyncMarket.load(connection, Publ(serum_market_config['serumMarketExternal']), Pubkey(serum_market_config['serumProgram']))
+        AsyncMarket.load(connection, PublicKey(serum_market_config['serumMarketExternal']), PublicKey(serum_market_config['serumProgram']))
         for serum_market_config in group['serum3Markets']
     ])
 
-    print(serum_markets)
+    serum_market: AsyncMarket = serum_markets[0]
+
+    fills = await serum_market.load_fills(9999)
+
+    print([fill._asdict() for fill in fills])
 
 
 if __name__ == '__main__':

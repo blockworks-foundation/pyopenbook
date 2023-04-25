@@ -3,13 +3,8 @@
 from setuptools import find_packages, setup
 
 setup(
-<<<<<<< Updated upstream
-    name="pyserum",
-    version="0.6.0a",
-=======
     name="pyopenbook",
-    version="0.7.0a",
->>>>>>> Stashed changes
+    version="0.7.3a",
     author="serum-community",
     description="""Python client library for interacting with the Project Serum DEX.""",
     install_requires=[

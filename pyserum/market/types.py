@@ -39,16 +39,13 @@ class AccountFlags(NamedTuple):
 
 
 class FilledOrder(NamedTuple):
-    client_order_id: int
-    """"""
     side: str
-    """"""
+    type: str
     price: float
-    """"""
     size: float
-    """"""
-    fee_cost: float
-    """"""
+    fee: float
+    open_orders: PublicKey
+    client_order_id: int
 
 
 class OrderInfo(NamedTuple):
